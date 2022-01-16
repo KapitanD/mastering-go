@@ -1,4 +1,3 @@
 # Chapter 3, exercise 1
 ## Description
-Your description here
-
+Write a constant generator iota for the days of the week.
