@@ -23,7 +23,7 @@ OPTIONS:
 
 EXAMPLE:
 	$./create_exercise.sh -c 1 -e 1
-	$tree chapter-1
+	\$tree chapter-1
 	chapter-1
 	└── exercise-1
 	    ├── Makefile
@@ -65,7 +65,7 @@ if [[ -z $chapter || -z $exercise ]]; then
 	exit 1
 fi
 
-if [[ ${PWD##*/} != $MASTERING_GO_FOLDER_NAME ]]; then 
+if [[ ${PWD##*/} != "$MASTERING_GO_FOLDER_NAME" ]]; then 
 	echo "Error: folder for exec this script must be '${MASTERING_GO_FOLDER_NAME}', current '${PWD##*/}'" >&2
 	exit 1
 fi
@@ -77,9 +77,9 @@ if [[ -d ${PWD}/$folder ]]; then
 	exit 1
 fi
 
-mkdir -p ${folder}
+mkdir -p "${folder}"
 # Create go code source template
-cat > ${folder}/main.go <<EOF
+cat > "${folder}/main.go" <<EOF
 package main
 
 func main() {
@@ -87,9 +87,9 @@ func main() {
 }
 EOF
 
-mkdir ${folder}/bin
+mkdir "${folder}/bin"
 # Create Makefile template
-cat > ${folder}/Makefile <<"EOF"
+cat > "${folder}/Makefile" <<"EOF"
 GOOS?=darwin
 GOARCH?=amd64
 
@@ -103,11 +103,12 @@ run: build
 
 EOF
 # Create readme file template
-cat > ${folder}/README.md <<EOF
+cat > "${folder}/README.md" <<EOF
 # Chapter ${chapter}, exercise ${exercise}
 ## Description
 Your description here
 
 EOF
 
-ls -l ${folder}
+ls -l "${folder}"
+
